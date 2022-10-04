@@ -16,7 +16,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
-            android:layout_marginHorizontal="10dp"
             android:orientation="horizontal">
 
 
@@ -24,14 +23,13 @@
                 android:id="@+id/image1"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:src="@drawable/banana"
-                />
+                android:src="@drawable/banana" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginStart="20dp"
+                android:layout_marginStart="15dp"
                 android:orientation="vertical">
 
                 <TextView
@@ -90,7 +88,8 @@
 
                 <RelativeLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="1dp">
 
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -103,8 +102,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginRight="0dp"
                             android:drawableRight="@drawable/ic_baseline_add_circle_24"
-                            android:textColor="@color/blue"
-                             />
+                            android:textColor="@color/blue" />
 
                         <TextView
                             android:id="@+id/remove"
@@ -113,8 +111,7 @@
                             android:layout_marginRight="0dp"
                             android:drawableRight="@drawable/ic_baseline_remove_circle_24"
                             android:gravity="bottom"
-                            android:textColor="@color/blue"
-                            />
+                            android:textColor="@color/blue" />
                     </LinearLayout>
                 </RelativeLayout>
 

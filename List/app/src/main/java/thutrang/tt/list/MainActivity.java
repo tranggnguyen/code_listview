@@ -19,10 +19,10 @@ import thutrang.tt.list.databinding.ActivityMainBinding;
 public class MainActivity extends AppCompatActivity {
     ActivityMainBinding binding;
     TextView add,remove;
-    String[] fruitList ={"apple","banana","dau","orange","melon"};
+    String[] fruitList ={"apple","banana","strawberry","orange","melon"};
     int fruitImages []= new int[]{R.drawable.apple, R.drawable.banana, R.drawable.dau, R.drawable.orange, R.drawable.melon};
-    String[] content ={"Nguyễn Thị Thư Trang","2050531200345","Ngon bổ rẻ","Cam tươi","Chín mọng ,nhiều nước"};
-    String[] money = {"60$","60$","60$","60$","60$"};
+    String[] content ={"Tuơi ngon","Giàu vitamin","Ngon bổ rẻ","Cam tươi","Chín mọng ,nhiều nước"};
+    String[] money = {"40$","20$","60$","50$","30$"};
     ListView lv;
     @Override
 
@@ -30,36 +30,34 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        add = (TextView) findViewById(R.id.add);
-        remove = (TextView) findViewById(R.id.remove);
+
 
 
         ArrayList<food> foodArrayList = new ArrayList<>();
         for(int i = 0 ; i< fruitList.length; i++ ){
-            food fd = new food(fruitList[i],content[i], money[i], fruitImages[i]);
+            food fd = new food(fruitList[i],content[i], money[i], fruitImages[i],"","");
             foodArrayList.add(fd);
         }
-
+        ArrayList<food> foods = new ArrayList<>();
+        for(int i = 0 ; i< fruitList.length; i++ ){
+            food fd = new food(fruitList[i],content[i], money[i], fruitImages[i],"","");
+            foodArrayList.remove(fd);
+        }
         ListAdapter listAdapter = new ListAdapter(MainActivity.this,foodArrayList);
-
         binding.lv.setAdapter(listAdapter);
         binding.lv.setClickable(true);
         binding.lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Toast.makeText(MainActivity.this,
-                        "Bạn Đã Chọn Loại Trái Cây : " + fruitList[i],Toast.LENGTH_SHORT).show();
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+
+                Intent kk =new Intent(MainActivity.this,foodInfo.class);
+                kk.putExtra("title",fruitList[position]);
+                kk.putExtra("content",content[position]);
+                kk.putExtra("money",money[position]);
+                kk.putExtra("imageid",fruitImages[position]);
+                startActivity(kk);
             }
         });
-//        //add items
-//        add.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Toast.makeText(MainActivity.this,
-//                        "Bạn đã thêm vào giỏ hàng: " ,Toast.LENGTH_SHORT).show();
-//
-//            }
-//        });
         
     }
 }

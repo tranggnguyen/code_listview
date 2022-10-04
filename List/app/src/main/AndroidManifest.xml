@@ -14,10 +14,11 @@
         android:theme="@style/Theme.List"
         tools:targetApi="31">
         <activity
-            android:name=".Template1"
-            android:exported="false"
-            android:label="@string/title_activity_template1"
-            android:theme="@style/Theme.List.NoActionBar" />
+            android:name=".foodInfo"
+            android:exported="false" />
+        <activity
+            android:name=".Info_food"
+            android:exported="false" />
         <activity
             android:name=".ListView"
             android:exported="false" />
